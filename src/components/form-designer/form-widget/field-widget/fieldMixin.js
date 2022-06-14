@@ -302,7 +302,6 @@ export default {
       if (!!this.designState) {
         return
       }
-
       if (!!this.subFormItemFlag) {
         let subFormData = this.formModel[this.subFormName] || [{}]
         let subFormDataRow = subFormData[this.subFormRowIndex]
@@ -326,7 +325,6 @@ export default {
 
     handleFocusCustomEvent(event) {
       this.oldFieldValue = deepClone(this.fieldModel)  //保存修改change之前的值
-
       if (!!this.field.options.onFocus) {
         let customFn = new Function('event', this.field.options.onFocus)
         customFn.call(this, event)

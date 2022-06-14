@@ -5,12 +5,18 @@
                     
     <div class="el-textarea el-input--default" data-v-5bc255ec="">
       <textarea 
-          class="el-textarea__inner"
-         :rows="field.options.rows" 
-         autocomplete="off" 
-         v-model="fieldModel" 
-         :placeholder="field.options.placeholder"
-         style="min-height: 31px;"></textarea>
+            class="el-textarea__inner"
+            ref="fieldEditor"
+            :rows="field.options.rows" 
+            autocomplete="off" 
+            v-model="fieldModel" 
+            :placeholder="field.options.placeholder"
+            :show-word-limit="field.options.showWordLimit"
+            @focus="handleFocusCustomEvent(fieldModel)"
+            @blur="handleBlurCustomEvent(fieldModel)"
+            @input="handleInputCustomEvent(fieldModel)"
+            @change="handleChangeEvent(fieldModel)"
+            style="min-height: 31px;"></textarea>
     </div>
     <!-- element-plus的el-input的textarea类型在表单设计器中添加后，再全局刷新会报错， -->
     <!-- <el-input type="textarea" ref="fieldEditor" v-model="fieldModel"

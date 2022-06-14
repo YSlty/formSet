@@ -13,3 +13,27 @@ body {
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
+.el-checkbox-group {
+    height: auto;
+    line-height: unset;
+    .el-checkbox {
+        margin-right: 10px;
+        float: left;
+    }
+}
+.el-dialog {
+    width: 70%;
+    height: 80%;
+    margin: var(--el-dialog-margin-top,10vh) auto 50px;
+    .el-dialog__body {
+        height: calc(100% - 180px) !important;
+    }
+}
+
+.el-input-number {
+    line-height: 28px;
+    .el-input-number__decrease,
+    .el-input-number__increase{
+        height: 28px;
+    }
+}

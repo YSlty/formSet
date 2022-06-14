@@ -17473,7 +17473,7 @@ const _hoisted_1$6 = {
   class: "el-textarea el-input--default",
   "data-v-5bc255ec": ""
 };
-const _hoisted_2$4 = ["rows", "placeholder"];
+const _hoisted_2$4 = ["rows", "placeholder", "show-word-limit"];
 function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -17492,12 +17492,18 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", _hoisted_1$6, [
         withDirectives(createElementVNode("textarea", {
           class: "el-textarea__inner",
+          ref: "fieldEditor",
           rows: $props.field.options.rows,
           autocomplete: "off",
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
           placeholder: $props.field.options.placeholder,
+          "show-word-limit": $props.field.options.showWordLimit,
+          onFocus: _cache[1] || (_cache[1] = ($event) => _ctx.handleFocusCustomEvent($data.fieldModel)),
+          onBlur: _cache[2] || (_cache[2] = ($event) => _ctx.handleBlurCustomEvent($data.fieldModel)),
+          onInput: _cache[3] || (_cache[3] = ($event) => _ctx.handleInputCustomEvent($data.fieldModel)),
+          onChange: _cache[4] || (_cache[4] = ($event) => _ctx.handleChangeEvent($data.fieldModel)),
           style: { "min-height": "31px" }
-        }, null, 8, _hoisted_2$4), [
+        }, null, 40, _hoisted_2$4), [
           [vModelText, $data.fieldModel]
         ])
       ])
@@ -17505,7 +17511,7 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d], ["__scopeId", "data-v-0ad2ed10"]]);
+var textareaWidget = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d], ["__scopeId", "data-v-687df2dc"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
@@ -18981,7 +18987,7 @@ const _sfc_main$4 = {
       return promise;
     },
     setFormData(widgetList, formData) {
-      debugger;
+      console.log(123);
       setData(widgetList);
       function setData(list) {
         list.forEach((subFormItem) => {
@@ -19185,7 +19191,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-position", "size", "class", "label-width", "model"])
   ]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-58bb11f5"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-08403b3c"]]);
 const COMMON_PROPERTIES = {
   "name": "name-editor",
   "label": "label-editor",

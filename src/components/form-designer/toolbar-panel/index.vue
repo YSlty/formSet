@@ -74,9 +74,6 @@
                 </div>
                 <template #footer>
                     <div class="dialog-footer">
-                        <el-button type="primary" @click="resetForm">重置表单</el-button>
-                        <el-button type="primary" @click="setFormDisabled">禁用编辑</el-button>
-                        <el-button type="primary" @click="setFormEnabled">恢复编辑</el-button>
                         <el-button @click="showPreviewDialogFlag = false">关闭</el-button>
                     </div>
                 </template>
@@ -488,8 +485,21 @@ export default {
             this.saveAsFile(this.htmlCode, `formData${generateId()}.json`)
         },
 
-        resetForm() {
-            this.$refs['preForm'].resetForm()
+        abc() {
+            // this.$refs['preForm'].resetForm()
+             this.$refs['preForm'].setFormData(this.designer.widgetList,
+                {
+                    date69624: new Date(),
+                    switch17531: true,
+                    input28924: "12313212"
+                },
+            )
+        },
+        
+        getData() {
+            this.$refs['preForm'].getFormData().then((data) => {
+                console.log(data)
+            })
         },
 
         setFormDisabled() {

@@ -53,7 +53,9 @@
       this.unregisterFromRefList()
     },
     methods: {
-
+       getName: function(){
+           return 'ContainerItem'
+       }
     },
   }
 </script>

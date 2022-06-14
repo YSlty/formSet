@@ -1,17 +1,19 @@
 
 function _broadcast(componentName, eventName, params) {
-  this.$children.forEach(function (child) {
-    let name = child.$options.componentName;
+    console.log(this)
+    this.formData = params
+  // this.$childer.forEach(function (child) {
+  //   let name = child.$options.componentName;
 
-    if (name === componentName) {
-      //child.$emit.apply(child, [eventName].concat(params));
-      if (!!child.emit$) {
-        child.emit$.call(child, eventName, params)
-      }
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat([params]));
-    }
-  });
+  //   if (name === componentName) {
+  //     //child.$emit.apply(child, [eventName].concat(params));
+  //     if (!!child.emit$) {
+  //       child.emit$.call(child, eventName, params)
+  //     }
+  //   } else {
+  //     _broadcast.apply(child, [componentName, eventName].concat([params]));
+  //   }
+  // });
 }
 
 export default {

@@ -9,6 +9,7 @@
 -->
 
 <template>
+    <div>
     <el-form
         :label-position="labelPosition"
         :size="size"
@@ -22,6 +23,7 @@
         <template v-for="(widget, index) in widgetList">
             <template v-if="'container' === widget.category">
                 <component
+                    ref="itemRef"
                     :is="getContainerWidgetName(widget)"
                     :widget="widget"
                     :key="widget.id"
@@ -36,6 +38,7 @@
             </template>
             <template v-else>
                 <component
+                    ref="itemRef"
                     :is="getWidgetName(widget)"
                     :field="widget"
                     :form-model="formDataModel"
@@ -52,6 +55,8 @@
             </template>
         </template>
     </el-form>
+
+    </div>
 </template>
 
 <script>
@@ -69,7 +74,6 @@ export default {
     mixins: [emitter, i18n],
     components: {
         // ElForm,
-
         ...FieldComponents
     },
     props: {
@@ -268,6 +272,9 @@ export default {
                     this.formDataModel[wItem.options.name] = deepClone(initialValue)
                 }
             }
+            this.$nextTick(() => {
+                this.$forceUpdate()
+            })
         },
 
         addFieldChangeEventHandler() {
@@ -424,18 +431,48 @@ export default {
             return promise
         },
 
-        setFormData(formData) { // 设置表单数据
-            Object.keys(this.formDataModel).forEach(propName => {
-                if (!!formData && formData.hasOwnProperty(propName)) {
-                    this.formDataModel[propName] = deepClone(formData[propName])
-                }
+        setFormData(widgetList, formData) { // 设置表单数据
+            console.log(123)
+            const subFormDataRow = {}
+            setData(widgetList)
+            function setData (list) {
+                list.forEach(subFormItem => {
+                    if(!subFormItem.rows && !subFormItem.cols) {
+                        for(let key in formData) {
+                            if(subFormItem.id === key) {
+                                subFormItem.options.defaultValue = formData[key]
+                            }
+                        }
+                    }
+                    if(subFormItem.rows && subFormItem.rows.length !== 0) {
+                        setData(subFormItem.rows)
+                    }
+                    if(subFormItem.cols && subFormItem.cols.length !== 0) {
+                        setData(subFormItem.cols)
+                    }
+                    if(subFormItem.widgetList && subFormItem.widgetList.length !== 0) {
+                        setData(subFormItem.widgetList)
+                    }
+                })
+            }
+            this.clearFormDataModel()
+            this.buildFormModel(widgetList)
+            this.$nextTick(() => {
+                this.initFormObject()
+                this.handleOnMounted()
             })
+            this.resetForm()
+            // Object.keys(this.formDataModel).forEach(propName => {
+            //     if (!!formData && formData.hasOwnProperty(propName)) {
+            //         this.formDataModel[propName] = deepClone(formData[propName])
+            //     }
+            // })
+            // this.formDataModel = formData
+            // // 通知SubForm组件：表单数据更新事件！！
+            // this.broadcast('ContainerItem', 'setFormData', this.formDataModel)
 
-            // 通知SubForm组件：表单数据更新事件！！
-            this.broadcast('ContainerItem', 'setFormData', this.formDataModel)
-
-            // 通知FieldWidget组件：表单数据更新事件！！
-            this.broadcast('FieldWidget', 'setFormData', this.formDataModel)
+            // // 通知FieldWidget组件：表单数据更新事件！！
+            // this.broadcast('FieldWidget', 'setFormData', this.formDataModel)
         },
 
         getFieldValue(fieldName) { // 单个字段获取值
@@ -488,7 +525,7 @@ export default {
             })
         },
 
-        resetForm() { // 重置表单
+        resetForm() { // 重置表单   
             const subFormNames = Object.keys(this.subFormRefList)
             subFormNames.forEach(sfName => {
                 if (this.subFormRefList[sfName].resetSubForm) {

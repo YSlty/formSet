@@ -4,7 +4,7 @@
       :style="{width: widget.options.cellWidth + ' !important' || '', height: widget.options.cellHeight + ' !important' || '', background: widget.options.backgroundColor + '!important' || ''}">
     <template v-for="(subWidget, swIdx) in widget.widgetList">
       <template v-if="'container' === subWidget.category">
-        <component :is="subWidget.type + '-item'" :widget="subWidget" :key="swIdx" :parent-list="widget.widgetList"
+        <component ref="itemRef" :is="subWidget.type + '-item'" :widget="subWidget" :key="swIdx" :parent-list="widget.widgetList"
                         :index-of-parent-list="swIdx" :parent-widget="widget">
           <!-- 递归传递插槽！！！ -->
           <template v-for="slot in Object.keys($slots)" v-slot:[slot]="scope">
@@ -13,7 +13,7 @@
         </component>
       </template>
       <template v-else>
-        <component :is="subWidget.type + '-widget'" :field="subWidget" :key="swIdx" :parent-list="widget.widgetList"
+        <component ref="itemRef" :is="subWidget.type + '-widget'" :field="subWidget" :key="swIdx" :parent-list="widget.widgetList"
                       :index-of-parent-list="swIdx" :parent-widget="widget">
           <!-- 递归传递插槽！！！ -->
           <template v-for="slot in Object.keys($slots)" v-slot:[slot]="scope">
@@ -62,7 +62,7 @@
 
 <style lang="scss" scoped>
   td.table-cell {
-    padding:0 10px;
+    padding:10px;
     display: table-cell;
     height: 36px;
     //border: 1px dashed #336699;
