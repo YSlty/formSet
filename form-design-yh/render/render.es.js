@@ -1061,8 +1061,8 @@ axios$1.spread = spread;
 axios$1.isAxiosError = isAxiosError;
 axios$2.exports = axios$1;
 axios$2.exports.default = axios$1;
-var require$$0 = axios$2.exports;
-var axios = require$$0;
+var require$$0$2 = axios$2.exports;
+var axios = require$$0$2;
 function _broadcast(componentName, eventName, params) {
   console.log(this);
   this.formData = params;
@@ -1181,6 +1181,7 @@ function createI18n(options) {
   };
 }
 var en = {};
+var en2 = {};
 (function(exports) {
   Object.defineProperty(exports, "__esModule", { value: true });
   var English = {
@@ -1188,7 +1189,9 @@ var en = {};
     el: {
       colorpicker: {
         confirm: "OK",
-        clear: "Clear"
+        clear: "Clear",
+        defaultLabel: "color picker",
+        description: "current color is {color}. press enter to select a new color."
       },
       datepicker: {
         now: "Now",
@@ -1196,6 +1199,10 @@ var en = {};
         cancel: "Cancel",
         clear: "Clear",
         confirm: "OK",
+        dateTablePrompt: "Use the arrow keys and enter to select the day of the month",
+        monthTablePrompt: "Use the arrow keys and enter to select the month",
+        yearTablePrompt: "Use the arrow keys and enter to select the year",
+        selectedDate: "Selected date",
         selectDate: "Select date",
         selectTime: "Select time",
         startDate: "Start Date",
@@ -1229,6 +1236,15 @@ var en = {};
           fri: "Fri",
           sat: "Sat"
         },
+        weeksFull: {
+          sun: "Sunday",
+          mon: "Monday",
+          tue: "Tuesday",
+          wed: "Wednesday",
+          thu: "Thursday",
+          fri: "Friday",
+          sat: "Saturday"
+        },
         months: {
           jan: "Jan",
           feb: "Feb",
@@ -1244,11 +1260,18 @@ var en = {};
           dec: "Dec"
         }
       },
+      inputNumber: {
+        decrease: "decrease number",
+        increase: "increase number"
+      },
       select: {
         loading: "Loading",
         noMatch: "No matching data",
         noData: "No data",
         placeholder: "Select"
+      },
+      dropdown: {
+        toggleDropdown: "Toggle Dropdown"
       },
       cascader: {
         noMatch: "No matching data",
@@ -1263,17 +1286,29 @@ var en = {};
         pageClassifier: "",
         deprecationWarning: "Deprecated usages detected, please refer to the el-pagination documentation for more details"
       },
+      dialog: {
+        close: "Close this dialog"
+      },
+      drawer: {
+        close: "Close this dialog"
+      },
       messagebox: {
         title: "Message",
         confirm: "OK",
         cancel: "Cancel",
-        error: "Illegal input"
+        error: "Illegal input",
+        close: "Close this dialog"
       },
       upload: {
         deleteTip: "press delete to remove",
         delete: "Delete",
         preview: "Preview",
         continue: "Continue"
+      },
+      slider: {
+        defaultLabel: "slider between {min} and {max}",
+        defaultRangeStartLabel: "pick start value",
+        defaultRangeEndLabel: "pick end value"
       },
       table: {
         emptyText: "No Data",
@@ -1306,12 +1341,19 @@ var en = {};
     }
   };
   exports["default"] = English;
+})(en2);
+var require$$0$1 = /* @__PURE__ */ getDefaultExportFromCjs(en2);
+(function(exports) {
+  Object.defineProperty(exports, "__esModule", { value: true });
+  var en3 = require$$0$1;
+  exports["default"] = en3["default"];
 })(en);
 var enLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(en);
 var zhCn = {};
+var zhCn2 = {};
 (function(exports) {
   Object.defineProperty(exports, "__esModule", { value: true });
-  var zhCn2 = {
+  var zhCn3 = {
     name: "zh-cn",
     el: {
       colorpicker: {
@@ -1432,7 +1474,13 @@ var zhCn = {};
       }
     }
   };
-  exports["default"] = zhCn2;
+  exports["default"] = zhCn3;
+})(zhCn2);
+var require$$0 = /* @__PURE__ */ getDefaultExportFromCjs(zhCn2);
+(function(exports) {
+  Object.defineProperty(exports, "__esModule", { value: true });
+  var zhCn3 = require$$0;
+  exports["default"] = zhCn3["default"];
 })(zhCn);
 var zhLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(zhCn);
 var enLocale = {
@@ -20447,3 +20495,4 @@ var installRender = {
   VFormRender
 };
 export { installRender as default };
+//# sourceMappingURL=render.es.js.map

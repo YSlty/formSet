@@ -297,6 +297,9 @@ div.panel-container {
 			}
 		}
 	}
+    :deep(.el-tabs__item) {
+        cursor: context-menu;
+    }
 }
 .no-bottom-margin :deep(.el-tabs__header) {
     margin-bottom: 0;

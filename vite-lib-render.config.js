@@ -48,6 +48,7 @@ export default defineConfig({
   },
 
   build: {
+      sourcemap: true,
     //minify: false, //
     lib: {
       entry: resolve(__dirname, 'install-render.js'),

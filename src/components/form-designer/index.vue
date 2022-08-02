@@ -26,15 +26,6 @@
             </el-aside>
 
             <el-container class="center-layout-container">
-                <el-header class="toolbar-header">
-                    <p style="padding: 0px 8px;margin: 0; height: 42px; line-height: 42px;">
-                        表单名称：
-                        <span v-show="!editFromName">
-                            {{editFormData.name}}<svg-icon icon-class="edit" style="cursor: pointer;font-size: 18px;" @click="editFromName = true" />
-                        </span>
-                        <el-input style="width: calc(100% - 80px);height: 30px;line-height: 30px;" v-model="editFormData.name" v-show="editFromName" @keyup.enter="editFromName = false"></el-input>
-                    </p>
-                </el-header>
                 <el-main class="form-widget-main">
                     <el-scrollbar class="container-scroll-bar" style="height: 100%；">
                         <v-form-widget :designer="designer" :form-config="designer.formConfig">

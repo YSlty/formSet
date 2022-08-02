@@ -2,6 +2,7 @@
   <el-form-item :label="i18nt('designer.setting.format')">
     <el-select v-model="optionModel.format"  @change="formatChange">
       <el-option label="年-月-日" value="YYYY-MM-DD"></el-option>
+      <el-option label="年" value="YYYY"></el-option>
       <el-option label="年-月" value="YYYY-MM"></el-option>
       <el-option label="年-月-日 时:分" value="YYYY-MM-DD HH:mm"></el-option>
     </el-select>

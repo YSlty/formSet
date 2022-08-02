@@ -53,6 +53,7 @@ export default defineConfig({
 
   build: {
     minify: false,
+    sourcemap: true,
     commonjsOptions: {
       exclude: [
         'lib/vuedraggable/dist/vuedraggable.umd.js,',  //引号前的逗号不能删，不知何故？？
