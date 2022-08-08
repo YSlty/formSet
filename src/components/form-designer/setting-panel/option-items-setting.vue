@@ -40,12 +40,12 @@
                    :placeholder="i18nt('render.hint.selectPlaceholder')">
       </el-cascader>
     </div>
-    <div v-if="(selectedWidget.type === 'cascader')">
+    <div class="option-items-btn" v-if="(selectedWidget.type === 'cascader')">
       <el-button type="text" @click="importCascaderOptions">{{i18nt('designer.setting.importOptions')}}</el-button>
       <el-button type="text" @click="resetDefault">{{i18nt('designer.setting.resetDefault')}}</el-button>
     </div>
 
-    <div v-if="(selectedWidget.type === 'radio') || (selectedWidget.type === 'checkbox') || (selectedWidget.type === 'select')">
+    <div class="option-items-btn" v-if="(selectedWidget.type === 'radio') || (selectedWidget.type === 'checkbox') || (selectedWidget.type === 'select')">
       <el-button type="text" @click="addOption">{{i18nt('designer.setting.addOption')}}</el-button>
       <el-button type="text" @click="importOptions">{{i18nt('designer.setting.importOptions')}}</el-button>
       <el-button type="text" @click="resetDefault">{{i18nt('designer.setting.resetDefault')}}</el-button>

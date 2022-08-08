@@ -3,7 +3,7 @@
         ref="abc"
         class="table-cell"
         :class="[selected ? 'selected' : '', customClass]"
-        :style="{width: widget.options.cellWidth + '!important' || '', height: widget.options.cellHeight + '!important' || '', background: widget.options.backgroundColor + '!important' || ''}"
+        :style="{width: widget.options.cellWidth + 'px' + ' !important' || '', height: widget.options.cellHeight + 'px' + ' !important' || '', background: widget.options.backgroundColor + '!important' || ''}"
         :colspan="widget.options.colspan || 1"
         :rowspan="widget.options.rowspan || 1"
         @click.stop="selectWidget(widget)"
@@ -196,6 +196,7 @@ export default {
         },
 
         onTableDragUpdate() {
+            
             this.designer.emitHistoryChange()
         },
 
@@ -248,10 +249,12 @@ export default {
         },
 
         insertAboveRow() {
+            this.parentWidget.options.backgroundColor = '#fff'
             this.designer.insertTableRow(this.parentWidget, this.rowIndex, this.rowIndex, this.colIndex, true)
         },
 
         insertBelowRow() {
+            this.parentWidget.options.backgroundColor = '#fff'
             this.designer.insertTableRow(this.parentWidget, this.rowIndex, this.rowIndex, this.colIndex, false)
         },
 

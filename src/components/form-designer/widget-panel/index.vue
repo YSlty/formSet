@@ -342,14 +342,15 @@ div.panel-container {
 				display: inline-block;
 				height: 28px;
 				line-height: 28px;
-				width: 115px;
+				width: 95px;
 				float: left;
-				margin: 2px 6px 6px 0;
+				margin: 6px 6px 6px 0;
 				cursor: move;
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				overflow: hidden;
 				background: #f1f2f3;
+                padding: 0 12px;
                 border-radius: 5px;
 			}
 

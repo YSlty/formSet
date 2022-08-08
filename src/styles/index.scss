@@ -37,3 +37,28 @@ body {
         height: 28px;
     }
 }
+.el-radio-group, .el-checkbox-group {
+    ul {
+        li {
+            padding: 5px 0;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            .el-checkbox__label, .el-radio__label {
+                height: 30px;
+                line-height: 30px;
+                div, i, button {
+                    padding: 0 5px;
+                }
+            }
+        }
+    }
+}
+.option-items-btn {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.el-radio {
+    margin-right: 10px;
+}

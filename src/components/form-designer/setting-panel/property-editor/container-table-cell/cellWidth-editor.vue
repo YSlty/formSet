@@ -6,7 +6,6 @@
 
 <script>
   import i18n from "@/utils/i18n"
-
   export default {
     name: "cellWidth-editor",
     mixins: [i18n],
@@ -14,7 +13,7 @@
       designer: Object,
       selectedWidget: Object,
       optionModel: Object,
-    },
+    }
   }
 </script>
 

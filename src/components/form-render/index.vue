@@ -432,7 +432,6 @@ export default {
         },
 
         setFormData(widgetList, formData) { // 设置表单数据
-            console.log(123)
             const subFormDataRow = {}
             setData(widgetList)
             function setData (list) {

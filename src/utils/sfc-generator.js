@@ -115,6 +115,11 @@ export function buildContainerWidget(widget, formConfig) {
 }
 
 function getElAttrs(widget, formConfig) {  //获取El组件属性
+if(wop.multiple) {
+    formConfig.modelName[wop.name] = []
+} else {
+    formConfig.modelName[wop.name] = ''
+}
   let wop = widget.options
   return {
     vModel: `v-model="${formConfig.modelName}.${wop.name}"`,
@@ -249,6 +254,16 @@ const elTemplates = {  //字段组件属性
   },
 
   'select': (widget, formConfig) => {
+    const {vModel, disabled, size, clearable, filterable, allowCreate, defaultFirstOption, automaticDropdown,
+      multiple, multipleLimit, remote, placeholder} = getElAttrs(widget, formConfig)
+    const selectOptions = buildSelectChildren(widget, formConfig)
+    return `<el-select ${vModel} class="full-width-input" ${disabled} ${size} ${clearable} ${filterable}
+            ${allowCreate} ${defaultFirstOption} ${automaticDropdown} ${multiple} ${multipleLimit} ${placeholder}
+            ${remote}>${selectOptions}</el-select>`
+  },
+  
+  
+  'select-multiple': (widget, formConfig) => {
     const {vModel, disabled, size, clearable, filterable, allowCreate, defaultFirstOption, automaticDropdown,
       multiple, multipleLimit, remote, placeholder} = getElAttrs(widget, formConfig)
     const selectOptions = buildSelectChildren(widget, formConfig)

@@ -373,12 +373,10 @@ export default {
 
   .el-container.center-layout-container {
     min-width: 625px;
-    border-left: 2px dotted #EBEEF5;
-    border-right: 2px dotted #EBEEF5;
   }
 
   .el-header.main-header {
-    border-bottom: 2px dotted #EBEEF5;
+    border-bottom: 1px solid #EBEEF5;
     height: 48px !important;
     line-height: 48px !important;
     min-width: 800px;

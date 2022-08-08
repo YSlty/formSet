@@ -1,6 +1,5 @@
 
 function _broadcast(componentName, eventName, params) {
-    console.log(this)
     this.formData = params
   // this.$childer.forEach(function (child) {
   //   let name = child.$options.componentName;

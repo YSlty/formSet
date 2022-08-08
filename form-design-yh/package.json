@@ -1,6 +1,6 @@
 {
     "name": "form-design-yh",
-    "version": "1.10.12",
+    "version": "1.10.13",
     "private": false,
     "main": "dist/designer.umd.js",
     "scripts": {

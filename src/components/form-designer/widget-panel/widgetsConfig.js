@@ -72,8 +72,7 @@ export const basicFields = [{
             placeholder: '',
             labelWidth: 80,
             labelHidden: false,
-
-            showPassword: false,
+            showPassword: false, 
         },
     },
 
@@ -165,13 +164,13 @@ export const basicFields = [{
 
     {
         type: 'select',
-        textName: '下拉选项',
+        textName: '单选下拉',
         icon: 'select-field',
         formItemFlag: true,
         options: {
             name: '',
             label: '',
-            labelName: '下拉选项',
+            labelName: '单选下拉',
             defaultValue: '',
             placeholder: '',
             labelWidth: 80,
@@ -186,7 +185,31 @@ export const basicFields = [{
             ],
         },
     },
-
+    
+    {
+        type: 'select',
+        textName: '多选下拉',
+        icon: 'select-field',
+        formItemFlag: true,
+        options: {
+            name: '',
+            label: '',
+            labelName: '多选下拉',
+            defaultValue: '',
+            placeholder: '',
+            labelWidth: 80,
+            labelHidden: false,
+    
+            multiple: true,
+            multipleLimit: 0,
+            optionItems: [
+                { label: 'select 1', value: 1 },
+                { label: 'select 2', value: 2 },
+                { label: 'select 3', value: 3 },
+            ],
+        },
+    },
+    
     {
         type: 'date',
         textName: '日期',
@@ -259,53 +282,7 @@ export const basicFields = [{
 
 ]
 
-export const advancedFields = [{
-        type: 'picture-upload',
-        textName: '图片',
-        icon: 'picture-upload-field',
-        formItemFlag: true,
-        options: {
-            name: '',
-            label: '',
-            labelWidth: 80,
-            labelHidden: false,
-            labelName: '图片',
-
-            //-------------------
-            uploadURL: '',
-            uploadTip: '',
-            multipleSelect: false,
-            showFileList: true,
-            limit: 3,
-            fileMaxSize: 5, //MB
-            picTypes: ['jpeg', 'png'],
-            //headers: [],
-        },
-
-    },
-
-    {
-        type: 'file-upload',
-        textName: '文件',
-        icon: 'file-upload-field',
-        formItemFlag: true,
-        options: {
-            name: '',
-            label: '',
-            labelWidth: 80,
-            labelHidden: false,
-            labelName: '文件',
-            uploadURL: '',
-            uploadTip: '',
-            multipleSelect: false,
-            showFileList: true,
-            limit: 3,
-            fileMaxSize: 5, //MB
-            fileTypes: ['doc', 'docx', 'xls', 'xlsx'],
-            //headers: [],
-        },
-    },
-
+export const advancedFields = [
     {
         type: 'rich-editor',
         textName: '富文本',

@@ -19935,6 +19935,11 @@ function buildContainerWidget(widget, formConfig) {
   return containerTemplates[widget.type] ? containerTemplates[widget.type](widget, formConfig) : null;
 }
 function getElAttrs(widget, formConfig) {
+  if (wop.multiple) {
+    formConfig.modelName[wop.name] = [];
+  } else {
+    formConfig.modelName[wop.name] = "";
+  }
   let wop = widget.options;
   return {
     vModel: `v-model="${formConfig.modelName}.${wop.name}"`,

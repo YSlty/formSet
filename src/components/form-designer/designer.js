@@ -208,7 +208,6 @@ export function createDesigner(vueInstance) {
         newCol.widgetList.length = 0
         row.cols.splice(colIdx, 0, newCol)
       })
-
       this.emitHistoryChange()
     },
 
@@ -241,10 +240,10 @@ export function createDesigner(vueInstance) {
         col.merged = false
         col.options.colspan = 1
         col.options.rowspan = 1
+        col.options.backgroundColor = '#FFF'
         col.widgetList.length = 0
       })
       widget.rows.splice(newRowIdx, 0, newRow)
-
       let colNo = 0
       while ((newRowIdx < widget.rows.length - 1) && (colNo < widget.rows[0].cols.length)) {  //越界判断
         const cellOfNextRow = widget.rows[newRowIdx + 1].cols[colNo]
@@ -273,7 +272,6 @@ export function createDesigner(vueInstance) {
           colNo += cellOfNextRow.options.colspan || 1
         }
       }
-
       this.emitHistoryChange()
     },
 
@@ -868,7 +866,6 @@ export function createDesigner(vueInstance) {
         widgetList: deepClone(this.widgetList),
         formConfig: deepClone(this.formConfig)
       })
-
       this.saveFormContentToStorage()
 
       if (this.historyData.index < this.historyData.steps.length - 1) {

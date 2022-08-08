@@ -6,7 +6,7 @@
 
 <script>
   import i18n from "@/utils/i18n"
-
+  import propertyMixin from "@/components/form-designer/setting-panel/property-editor/propertyMixin"
   export default {
     name: "cellHeight-editor",
     mixins: [i18n],
@@ -14,8 +14,9 @@
       designer: Object,
       selectedWidget: Object,
       optionModel: Object,
-    },
+    }
   }
+  
 </script>
 
 <style scoped>

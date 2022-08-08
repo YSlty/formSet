@@ -20,7 +20,7 @@ export default {
     },
 
     inputNumberHandler({target}) {
-      target.value = target.value.replace(/[^0-9]/gi, '')
+      target = target.replace(/[^0-9]/gi, '')
     },
 
     onRemoteChange(val) {
